@@ -112,11 +112,11 @@ void distribuer (t_carte * paquet, t_carte * p1, t_carte * p2, t_carte * p3, t_c
     }
 
     for(int l = 26; l < 39; l++){
-        p1[l] = paquet[l];
+        p3[l] = paquet[l];
     }
 
     for(int m = 39; m < 52; m++){
-        p2[m] = paquet[m];
+        p4[m] = paquet[m];
     }
 
 }
