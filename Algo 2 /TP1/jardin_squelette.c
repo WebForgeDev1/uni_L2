@@ -1,226 +1,117 @@
 #include <stdio.h>
 
-/*
- * Squelette d'examen - jeu du jardin
- *
- * Les fonctions ci-dessous sont volontairement incomplètes. Completer les
- * TODO sans modifier les prototypes si l'enonce impose une interface precise.
- */
-
 #define NB_LIGNES 5
 #define NB_COLONNES 5
-#define TAILLE_NOM_FICHIER 256
+#define TAILLE_NOM_FICHIER 100
 
 typedef enum {
-    CASE_VIDE,
+    VIDE,
     CAROTTE,
     NAVET,
     RADIS,
     PIEGE
-} TypeCase;
+} Element;
 
-typedef struct {
-    TypeCase cases[NB_LIGNES][NB_COLONNES];
-} Jardin;
+typedef Element Grille[NB_LIGNES][NB_COLONNES];
 
-typedef struct {
-    int ligne;
-    int colonne;
-} Coordonnees;
-
-/* Initialisation et affichage du jardin. */
-void init_potager(Jardin *jardin);
-void afficher_jardin(const Jardin *jardin);
-
-/* Sauvegarde dans un fichier dont le nom est choisi par l'utilisateur. */
-int sauvegarde(const Jardin *jardin, const char *nom_fichier);
-int demander_nom_fichier(char *nom_fichier, size_t taille_nom_fichier);
-
-/* Placement des legumes et des pieges par le jardinier. */
-int coordonnees_valides(Coordonnees coordonnees);
-int case_vide(const Jardin *jardin, Coordonnees coordonnees);
-int placer_carotte(Jardin *jardin, Coordonnees coordonnees);
-int placer_navet(Jardin *jardin, Coordonnees coordonnees);
-int placer_radis(Jardin *jardin, Coordonnees coordonnees);
-int placer_piege(Jardin *jardin, Coordonnees coordonnees);
-void tour_jardinier(Jardin *jardin);
-
-/* Tour du lapin et messages associés à la case choisie. */
-Coordonnees choisir_coordonnees_lapin(void);
-void tour_lapin(Jardin *jardin);
-void message_case_vide(void);
-void message_legume(TypeCase legume);
-void message_dernier_legume(TypeCase legume);
-void message_piege(void);
-
-/* Conditions de fin de partie. */
-int reste_legumes(const Jardin *jardin);
-int lapin_a_gagne(const Jardin *jardin);
-int jardinier_a_gagne(const Jardin *jardin);
-int partie_terminee(const Jardin *jardin);
-
-int main(void)
+void init_potager(Grille grille)
 {
-    Jardin jardin;
-    char nom_fichier[TAILLE_NOM_FICHIER];
+    /* TODO */
+}
 
-    /*
-     * TODO : remplacer l'appel a init_potager par tour_jardinier pour tester
-     * cette partie de l'enonce, puis organiser les tours et afficher le gagnant.
-     */
-    /* TODO : tour_jardinier(&jardin); */
-    (void)jardin;
-    (void)nom_fichier;
+void affiche_grille(Grille grille)
+{
+    /* TODO */
+}
 
+void sauvegarde(Grille grille)
+{
+    /* TODO : demander le nom du fichier puis sauvegarder la grille. */
+}
+
+int coordonnees_valides(int ligne, int colonne)
+{
+    /* TODO */
     return 0;
 }
 
-void init_potager(Jardin *jardin)
+int case_libre(Grille grille, int ligne, int colonne)
 {
-    /* TODO : mettre toutes les cases du jardin dans l'etat CASE_VIDE. */
-    (void)jardin;
-}
-
-void afficher_jardin(const Jardin *jardin)
-{
-    /* TODO : afficher la matrice et la signification de chaque symbole. */
-    (void)jardin;
-}
-
-int sauvegarde(const Jardin *jardin, const char *nom_fichier)
-{
-    /* TODO : ouvrir nom_fichier et y sauvegarder le contenu du jardin. */
-    (void)jardin;
-    (void)nom_fichier;
+    /* TODO */
     return 0;
 }
 
-int demander_nom_fichier(char *nom_fichier, size_t taille_nom_fichier)
+void placer_carotte(Grille grille, int ligne, int colonne)
 {
-    /* TODO : demander puis lire un nom de fichier choisi par l'utilisateur. */
-    (void)nom_fichier;
-    (void)taille_nom_fichier;
-    return 0;
+    /* TODO */
 }
 
-int coordonnees_valides(Coordonnees coordonnees)
+void placer_navet(Grille grille, int ligne, int colonne)
 {
-    /* TODO : verifier que la ligne et la colonne sont dans la matrice. */
-    (void)coordonnees;
-    return 0;
+    /* TODO */
 }
 
-int case_vide(const Jardin *jardin, Coordonnees coordonnees)
+void placer_radis(Grille grille, int ligne, int colonne)
 {
-    /* TODO : verifier que la case est vide, apres validation des coordonnees. */
-    (void)jardin;
-    (void)coordonnees;
-    return 0;
+    /* TODO */
 }
 
-int placer_carotte(Jardin *jardin, Coordonnees coordonnees)
+void placer_piege(Grille grille, int ligne, int colonne)
 {
-    /* TODO : valider les coordonnees et la case, puis placer une carotte. */
-    (void)jardin;
-    (void)coordonnees;
-    return 0;
+    /* TODO */
 }
 
-int placer_navet(Jardin *jardin, Coordonnees coordonnees)
-{
-    /* TODO : valider les coordonnees et la case, puis placer un navet. */
-    (void)jardin;
-    (void)coordonnees;
-    return 0;
-}
-
-int placer_radis(Jardin *jardin, Coordonnees coordonnees)
-{
-    /* TODO : valider les coordonnees et la case, puis placer un radis. */
-    (void)jardin;
-    (void)coordonnees;
-    return 0;
-}
-
-int placer_piege(Jardin *jardin, Coordonnees coordonnees)
-{
-    /* TODO : valider les coordonnees et la case, puis placer un piege. */
-    (void)jardin;
-    (void)coordonnees;
-    return 0;
-}
-
-void tour_jardinier(Jardin *jardin)
+void tour_jardinier(Grille grille)
 {
     /*
-     * TODO : demander successivement les couples de coordonnees des carottes,
-     * navets, radis puis pieges. Verifier les coordonnees et que chaque case
-     * est libre, sans verifier l'alignement. Afficher puis sauvegarder le
-     * potager en reutilisant les fonctions deja ecrites.
+     * TODO : demander successivement les coordonnées des carottes, navets,
+     * radis puis pièges. Vérifier les coordonnées et les cases libres.
+     * Ne pas vérifier l'alignement. Afficher puis sauvegarder la grille.
      */
-    (void)jardin;
 }
 
-Coordonnees choisir_coordonnees_lapin(void)
+void tour_ragondin(Grille grille)
 {
-    Coordonnees coordonnees = {0, 0};
-
-    /* TODO : demander au lapin les coordonnees de la case a visiter. */
-    return coordonnees;
+    /* TODO : demander les coordonnées choisies par le ragondin. */
 }
 
-void tour_lapin(Jardin *jardin)
+void message_parcelle_vide(void)
 {
-    /* TODO : jouer un tour et appeler le message correspondant a la case. */
-    (void)jardin;
+    /* TODO : afficher « La parcelle est vide ». */
 }
 
-void message_case_vide(void)
+void message_legume(Element element)
 {
-    /* TODO : afficher le message prevu quand la case est vide. */
+    /* TODO : afficher le légume récolté. */
 }
 
-void message_legume(TypeCase legume)
+void message_dernier_legume(Element element)
 {
-    /* TODO : afficher le message prevu quand un legume est trouve. */
-    (void)legume;
-}
-
-void message_dernier_legume(TypeCase legume)
-{
-    /* TODO : afficher le message prevu quand c'est le dernier legume. */
-    (void)legume;
+    /* TODO : préciser que la récolte de cette catégorie est terminée. */
 }
 
 void message_piege(void)
 {
-    /* TODO : afficher le message prevu quand le lapin tombe sur un piege. */
+    /* TODO : afficher le message de victoire du jardinier. */
 }
 
-int reste_legumes(const Jardin *jardin)
+int tous_les_legumes_recoltes(Grille grille)
 {
-    /* TODO : determiner s'il reste au moins un legume dans le jardin. */
-    (void)jardin;
+    /* TODO */
     return 0;
 }
 
-int lapin_a_gagne(const Jardin *jardin)
+int partie_terminee(Grille grille)
 {
-    /* TODO : determiner si la condition de victoire du lapin est atteinte. */
-    (void)jardin;
+    /* TODO */
     return 0;
 }
 
-int jardinier_a_gagne(const Jardin *jardin)
+int main(void)
 {
-    /* TODO : determiner si la condition de victoire du jardinier est atteinte. */
-    (void)jardin;
-    return 0;
-}
+    Grille grille;
 
-int partie_terminee(const Jardin *jardin)
-{
-    /* TODO : combiner les conditions de fin de partie de l'enonce. */
-    (void)jardin;
+    /* TODO : tester le programme complet avec tour_jardinier. */
+
     return 0;
 }
