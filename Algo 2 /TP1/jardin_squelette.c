@@ -12,19 +12,17 @@ typedef enum {
     PIEGE
 } Element;
 
-typedef Element Grille[NB_LIGNES][NB_COLONNES];
-
-void init_potager(Grille grille)
+void init_potager(Element grille[NB_LIGNES][NB_COLONNES])
 {
     /* TODO */
 }
 
-void affiche_grille(Grille grille)
+void affiche_grille(Element grille[NB_LIGNES][NB_COLONNES])
 {
     /* TODO */
 }
 
-void sauvegarde(Grille grille)
+void sauvegarde(Element grille[NB_LIGNES][NB_COLONNES])
 {
     /* TODO : demander le nom du fichier puis sauvegarder la grille. */
 }
@@ -35,33 +33,33 @@ int coordonnees_valides(int ligne, int colonne)
     return 0;
 }
 
-int case_libre(Grille grille, int ligne, int colonne)
+int case_libre(Element grille[NB_LIGNES][NB_COLONNES], int ligne, int colonne)
 {
     /* TODO */
     return 0;
 }
 
-void placer_carotte(Grille grille, int ligne, int colonne)
+void placer_carotte(Element grille[NB_LIGNES][NB_COLONNES], int ligne, int colonne)
 {
     /* TODO */
 }
 
-void placer_navet(Grille grille, int ligne, int colonne)
+void placer_navet(Element grille[NB_LIGNES][NB_COLONNES], int ligne, int colonne)
 {
     /* TODO */
 }
 
-void placer_radis(Grille grille, int ligne, int colonne)
+void placer_radis(Element grille[NB_LIGNES][NB_COLONNES], int ligne, int colonne)
 {
     /* TODO */
 }
 
-void placer_piege(Grille grille, int ligne, int colonne)
+void placer_piege(Element grille[NB_LIGNES][NB_COLONNES], int ligne, int colonne)
 {
     /* TODO */
 }
 
-void tour_jardinier(Grille grille)
+void tour_jardinier(Element grille[NB_LIGNES][NB_COLONNES])
 {
     /*
      * TODO : demander successivement les coordonnées des carottes, navets,
@@ -70,7 +68,7 @@ void tour_jardinier(Grille grille)
      */
 }
 
-void tour_ragondin(Grille grille)
+void tour_ragondin(Element grille[NB_LIGNES][NB_COLONNES])
 {
     /* TODO : demander les coordonnées choisies par le ragondin. */
 }
@@ -95,13 +93,13 @@ void message_piege(void)
     /* TODO : afficher le message de victoire du jardinier. */
 }
 
-int tous_les_legumes_recoltes(Grille grille)
+int tous_les_legumes_recoltes(Element grille[NB_LIGNES][NB_COLONNES])
 {
     /* TODO */
     return 0;
 }
 
-int partie_terminee(Grille grille)
+int partie_terminee(Element grille[NB_LIGNES][NB_COLONNES])
 {
     /* TODO */
     return 0;
@@ -109,7 +107,7 @@ int partie_terminee(Grille grille)
 
 int main(void)
 {
-    Grille grille;
+    Element grille[NB_LIGNES][NB_COLONNES];
 
     /* TODO : tester le programme complet avec tour_jardinier. */
 
