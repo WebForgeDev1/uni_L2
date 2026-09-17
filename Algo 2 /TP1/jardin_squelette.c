@@ -109,7 +109,8 @@ int main(void)
 {
     Element grille[NB_LIGNES][NB_COLONNES];
 
-    /* TODO : tester le programme complet avec tour_jardinier. */
+    init_potager(grille);
+    affiche_grille(grille);
 
     return 0;
 }
