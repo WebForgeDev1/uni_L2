@@ -86,6 +86,14 @@ void ajoute_queue(int val){
         tete = a;
     }
 
+    queue = a;
+
+}
+
+void other_queue(int *val){
+    t_elem *s;
+
+
     else{
         queue->succ = a;
     }
@@ -93,6 +101,34 @@ void ajoute_queue(int val){
 
     queue = a;
 
+}
+
+void other_queue(int *val){
+    t_elem *s;
+
+    if(deque_vide()){
+        return;
+    }
+
+    s = queue;
+
+    *val = s->val;
+
+    queue = queue->pred;
+
+    if(queue == NULL){
+        tete = NULL;
+    }
+
+    else{
+
+
+        queue->succ = NULL;
+
+    }
+
+    free(s);
+    
 }
 
 
